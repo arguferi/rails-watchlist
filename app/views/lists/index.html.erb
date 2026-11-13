@@ -1,0 +1,26 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1764581659081-af662e1db71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D);">
+  <div class="container">
+    <h1>Start watching movies tonight</h1>
+    <p>Share your lists with your friends</p>
+  </div>
+</div>
+<div class="container mt-3 mb-b">
+  <div class="d-flex align-items-center">
+    <h3>Lists</h3>
+    <%= link_to new_list_path, class: 'ms-2 btn btn-info' do  %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
+  </div>
+  <div class="cards my-3">
+    <% if @lists.any? %>
+      <% @lists.each do |list| %>
+        <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= list.name %>
+          <%= link_to '', list_path(list), class: 'position-absolute top-0 bottom-0 w-100'  %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No lists yet.</p>
+    <% end %>
+  </div>
+</div>
